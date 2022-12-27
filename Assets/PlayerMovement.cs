@@ -29,11 +29,12 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(x));
-        if (isJumping)
-        {
-            animator.SetBool("IsJumping", true);
-        }
         isGrounded = circleCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        if (isGrounded)
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     private void FixedUpdate()
@@ -51,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("space") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
         }
     }
 }
