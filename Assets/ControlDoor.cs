@@ -29,12 +29,4 @@ public class ControlDoor : MonoBehaviour
     {
         spriteRenderer.sprite = closedDoor;
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            OpenDoor();
-        }
-    }
 }
