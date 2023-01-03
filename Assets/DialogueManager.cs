@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     Actor[] currentActors;
     int activeMessage = 0;
     public static bool isDialogueActive = false;
+    public static int currentDialogueID = 0;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -50,6 +51,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             isDialogueActive = false;
+            currentDialogueID = 0;
         }
     }
 
