@@ -9,24 +9,15 @@ public class ControlDoor : MonoBehaviour
     public Sprite openDoor;
     public Sprite closedDoor;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OpenDoor()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    void OpenDoor()
-    {
         spriteRenderer.sprite = openDoor;
     }
 
-    void CloseDoor()
+    public void CloseDoor()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = closedDoor;
     }
 }

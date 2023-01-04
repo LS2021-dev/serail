@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
+
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     // Update is called once per frame
@@ -93,10 +95,10 @@ public class Player : MonoBehaviour
             animator.SetBool("IsClimbing", false);
         }
     }
-    
-        IEnumerator StopClimbing()
-        {
-            yield return new WaitForSeconds(0.3f);
-            rb.velocity = new Vector2(0, 0);
-        }
+
+    IEnumerator StopClimbing()
+    {
+        yield return new WaitForSeconds(0.3f);
+        rb.velocity = new Vector2(0, 0);
     }
+}
