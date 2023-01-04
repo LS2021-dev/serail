@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             isDialogueActive = false;
-            currentDialogueID = 0;
+            Story.Execute(currentDialogueID);
         }
     }
 
