@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
     private float x;
+    private float y;
     private bool isGrounded;
     private Animator animator;
     private bool isClimbing;
@@ -40,6 +41,8 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("IsJumping", false);
             }
+
+            y = Input.GetAxis("Vertical");
         }
         else
         {
@@ -76,15 +79,9 @@ public class Player : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        if (Input.GetKey("w") && isClimbing)
+        if (isClimbing)
         {
-            rb.velocity = new Vector2(rb.velocity.x, ladderSpeed);
-            StartCoroutine(StopClimbing());
-        }
-        else if (Input.GetKey("s") && isClimbing)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -ladderSpeed);
-            StartCoroutine(StopClimbing());
+            rb.velocity = new Vector2(rb.velocity.x, y * ladderSpeed);
         }
     }
 
@@ -92,13 +89,14 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.CompareTag("LadderTop"))
         {
-            rb.gravityScale = 0;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(0, 0);
             isClimbing = false;
             animator.SetBool("IsClimbing", false);
         }
         else if (col.gameObject.CompareTag("LadderPart"))
         {
-            rb.gravityScale = 0;
+            rb.gravityScale = 0f;
             isClimbing = true;
             animator.SetBool("IsClimbing", true);
         }
@@ -112,11 +110,5 @@ public class Player : MonoBehaviour
             isClimbing = false;
             animator.SetBool("IsClimbing", false);
         }
-    }
-
-    IEnumerator StopClimbing()
-    {
-        yield return new WaitForSeconds(0.3f);
-        rb.velocity = new Vector2(0, 0);
     }
 }
