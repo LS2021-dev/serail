@@ -59,9 +59,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey("w") && isClimbing)
         {
             rb.velocity = new Vector2(rb.velocity.x, ladderSpeed);
-        } else if (Input.GetKey("s") && isClimbing)
+            StartCoroutine(StopClimbing());
+        }
+        else if (Input.GetKey("s") && isClimbing)
         {
             rb.velocity = new Vector2(rb.velocity.x, -ladderSpeed);
+            StartCoroutine(StopClimbing());
         }
     }
 
@@ -69,19 +72,31 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.CompareTag("LadderTop"))
         {
-            Debug.Log("LadderTop");
-            rb.gravityScale = gravity;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.gravityScale = 0;
             isClimbing = false;
             animator.SetBool("IsClimbing", false);
         }
-        else if (col.gameObject.CompareTag("Ladder"))
+        else if (col.gameObject.CompareTag("LadderPart"))
         {
-            Debug.Log("Ladder");
             rb.gravityScale = 0;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
             isClimbing = true;
             animator.SetBool("IsClimbing", true);
         }
     }
-}
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Ladder"))
+        {
+            rb.gravityScale = gravity;
+            isClimbing = false;
+            animator.SetBool("IsClimbing", false);
+        }
+    }
+    
+        IEnumerator StopClimbing()
+        {
+            yield return new WaitForSeconds(0.3f);
+            rb.velocity = new Vector2(0, 0);
+        }
+    }
