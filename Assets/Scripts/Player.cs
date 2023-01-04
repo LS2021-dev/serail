@@ -31,17 +31,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(x));
-        isGrounded = circleCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        if (isGrounded)
+        if (!DialogueManager.isDialogueActive)
         {
-            animator.SetBool("IsJumping", false);
+            x = Input.GetAxis("Horizontal");
+            animator.SetFloat("Speed", Mathf.Abs(x));
+            isGrounded = circleCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+            if (isGrounded)
+            {
+                animator.SetBool("IsJumping", false);
+            }
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
         }
     }
 
     private void FixedUpdate()
     {
+        if (DialogueManager.isDialogueActive)
+        {
+            speed = 0f;
+            jumpForce = 0f;
+        }
+        else
+        {
+            speed = 5f;
+            jumpForce = 10f;
+        }
+
         rb.velocity = new Vector2(x * speed, rb.velocity.y);
         if (x > 0)
         {
