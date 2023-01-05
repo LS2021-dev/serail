@@ -43,6 +43,15 @@ public class Player : MonoBehaviour
             }
 
             y = Input.GetAxis("Vertical");
+
+            if (isClimbing && rb.velocity.y == 0)
+            {
+                animator.speed = 0;
+            }
+            else
+            {
+                animator.speed = 1;
+            }
         }
         else
         {

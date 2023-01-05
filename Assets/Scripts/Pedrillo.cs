@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Pedrillo : MonoBehaviour
 {
-    private float x;
     private Animator animator;
     private Rigidbody2D rb;
+    private Vector3 previous;
+    private float velocity;
+    private bool isKneeling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +21,16 @@ public class Pedrillo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = rb.velocity.x;
-        animator.SetFloat("Speed", Mathf.Abs(x));
-        if (x > 0)
+        if (isKneeling)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            animator.SetBool("IsKneeling", true);
         }
-        else if (x < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+    }
+
+    private void FixedUpdate()
+    {
+        velocity = (transform.position - previous).magnitude / Time.deltaTime;
+        previous = transform.position;
+        animator.SetFloat("Speed", velocity);
     }
 }
