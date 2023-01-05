@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!DialogueManager.isDialogueActive)
+        if (!DialogueManager.isDialogueActive && !Story.freezePlayer)
         {
             x = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(x));

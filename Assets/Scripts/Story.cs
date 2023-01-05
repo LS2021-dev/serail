@@ -15,14 +15,15 @@ public class Story : MonoBehaviour
     private GameObject konstanze;
     private GameObject osmin;
     private GameObject selim;
-
-    private Transform playerTransform;
-    private Transform pedrilloTransform;
-    private Transform konstanzeTransform;
-    private Transform osminTransform;
-    private Transform selimTransform;
+    
+    private Rigidbody2D playerRb;
+    private Rigidbody2D pedrilloRb;
+    private Rigidbody2D konstanzeRb;
+    private Rigidbody2D osminRb;
+    private Rigidbody2D selimRb;
 
     public DialogueTrigger dialogueTrigger;
+    public static bool freezePlayer = false;
 
     private int storyId = 0;
 
@@ -37,18 +38,29 @@ public class Story : MonoBehaviour
         osmin = GameObject.Find("Osmin");
         selim = GameObject.Find("Selim");
 
-        playerTransform = player.GetComponent<Transform>();
-        pedrilloTransform = pedrillo.GetComponent<Transform>();
-        konstanzeTransform = konstanze.GetComponent<Transform>();
-        osminTransform = osmin.GetComponent<Transform>();
-        selimTransform = selim.GetComponent<Transform>();
+        playerRb = player.GetComponent<Rigidbody2D>();
+        pedrilloRb = pedrillo.GetComponent<Rigidbody2D>();
+        konstanzeRb = konstanze.GetComponent<Rigidbody2D>();
+        osminRb = osmin.GetComponent<Rigidbody2D>();
+        selimRb = selim.GetComponent<Rigidbody2D>();
 
         Execute(0);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        // osminTransform.position = Vector2.MoveTowards(osminTransform.position, new Vector2(0, osminTransform.position.y), 3f * Time.deltaTime);
+        if (storyId == 1)
+        {
+            if (pedrilloRb.position.x == 2)
+            {
+                freezePlayer = false;
+            }
+            else
+            {
+                pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
+                    new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
+            }
+        }
     }
 
     public void Execute(int id)
@@ -59,6 +71,10 @@ public class Story : MonoBehaviour
         {
             controlDoor1.OpenDoor();
             dialogueTrigger.StartDialogue();
+        }
+        else if (id == 1)
+        {
+            freezePlayer = true;
         }
     }
 }
