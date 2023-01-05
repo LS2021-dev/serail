@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public static bool isDialogueActive = false;
     public int currentDialogueID = 0;
     private Story story;
+    private GameObject notes;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -28,12 +28,27 @@ public class DialogueManager : MonoBehaviour
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
         currentDialogueID++;
+        if (currentDialogueID == 2)
+        {
+            GameObject.Find("Romanze_Pedrillo").SetActive(false);
+        }
     }
 
     void DisplayMessage()
     {
         Message messageToDisplay = currentMessages[activeMessage];
-        messageText.text = messageToDisplay.message;
+        if (messageToDisplay.message.Contains("*"))
+        {
+            messageText.fontStyle = FontStyles.Italic;
+            messageText.text = messageToDisplay.message.Replace("*", "");
+            notes.SetActive(true);
+        }
+        else
+        {
+            messageText.fontStyle = FontStyles.Normal;
+            messageText.text = messageToDisplay.message;
+            notes.SetActive(false);
+        }
 
         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
         actorName.text = actorToDisplay.name;
@@ -52,8 +67,9 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
-            isDialogueActive = false;
             story.Execute(currentDialogueID);
+            Thread.Sleep(100); // Buääh...
+            isDialogueActive = false;
         }
     }
 
@@ -71,6 +87,8 @@ public class DialogueManager : MonoBehaviour
     {
         backgroundBox.transform.localScale = Vector3.zero;
         story = GameObject.Find("Story").GetComponent<Story>();
+        notes = GameObject.Find("Notes_Pedrillo");
+        notes.SetActive(false);
     }
 
     // Update is called once per frame
