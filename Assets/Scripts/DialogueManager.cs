@@ -15,7 +15,8 @@ public class DialogueManager : MonoBehaviour
     Actor[] currentActors;
     int activeMessage = 0;
     public static bool isDialogueActive = false;
-    public static int currentDialogueID = 0;
+    public int currentDialogueID = 0;
+    private Story story;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Started conversation! Loaded messages: " + messages.Length);
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
+        currentDialogueID++;
     }
 
     void DisplayMessage()
@@ -51,7 +53,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             isDialogueActive = false;
-            Story.Execute(currentDialogueID);
+            story.Execute(currentDialogueID);
         }
     }
 
@@ -68,6 +70,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         backgroundBox.transform.localScale = Vector3.zero;
+        story = GameObject.Find("Story").GetComponent<Story>();
     }
 
     // Update is called once per frame

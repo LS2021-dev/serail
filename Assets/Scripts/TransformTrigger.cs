@@ -6,6 +6,8 @@ public class TransformTrigger : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
     private CircleCollider2D circleCollider;
+    public DialogueTrigger dialogueTrigger;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class TransformTrigger : MonoBehaviour
         if (boxCollider.OverlapPoint(transform.position) || circleCollider.OverlapPoint(transform.position))
         {
             Debug.Log("Player is in the trigger");
+            dialogueTrigger.StartDialogue();
         }
     }
 }
