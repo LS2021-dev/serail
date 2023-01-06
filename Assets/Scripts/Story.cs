@@ -57,6 +57,13 @@ public class Story : MonoBehaviour
                 pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                     new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
             }
+        } else if (storyId == 3)
+        {
+            if (pedrilloRb.position.x != 4)
+            {
+                pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
+                    new Vector3(4, pedrilloRb.position.y, 0), 0.1f);
+            }
         }
     }
 

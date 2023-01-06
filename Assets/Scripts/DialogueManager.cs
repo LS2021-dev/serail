@@ -27,9 +27,9 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Started conversation! Loaded messages: " + messages.Length);
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
-        if (dialogueIndex == 2)
+        if (dialogueIndex == 3)
         {
-            GameObject.Find("Romanze_Pedrillo").SetActive(false);
+            GameObject.Find("Dialogue_2").GetComponent<TransformTrigger>().enabled = false;
         }
     }
 

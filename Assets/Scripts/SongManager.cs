@@ -32,8 +32,8 @@ public class SongManager : MonoBehaviour
         DisplaySong();
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
-            GameObject.Find("Romanze_Pedrillo").SetActive(false);
             notesPedrillo.SetActive(true);
+            GameObject.Find("Romanze_Pedrillo").GetComponent<TransformTrigger>().enabled = false;
         }
     }
 
@@ -52,6 +52,7 @@ public class SongManager : MonoBehaviour
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
             notesPedrillo.SetActive(false);
+            GameObject.Find("Dialogue_2").GetComponent<TransformTrigger>().enabled = true;
         }
     }
 
