@@ -66,6 +66,13 @@ public class Story : MonoBehaviour
                 pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                     new Vector3(4, pedrilloRb.position.y, 0), 0.1f);
             }
+        } else if (storyId == 5)
+        {
+            if (konstanzeRb.position.x != 9)
+            {
+                konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position,
+                    new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
+            }
         }
     }
 
@@ -86,6 +93,11 @@ public class Story : MonoBehaviour
         {
             pedrilloHearts.SetActive(true);
             StartCoroutine(TriggerDialogue4(1.5f));
+        }
+        else if (id == 5)
+        {
+            konstanzeRb.gravityScale = 3.5f;
+            konstanze.GetComponent<Konstanze>().handsUp = false;
         }
     }
     private IEnumerator TriggerDialogue4(float delay)

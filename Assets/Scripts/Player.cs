@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        if (Input.GetKey("space") && isGrounded)
+        if (Input.GetKeyDown("space") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("IsJumping", true);

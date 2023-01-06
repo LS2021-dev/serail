@@ -2130,7 +2130,7 @@ MonoBehaviour:
   jumpForce: 10
   ladderSpeed: 2
   gravity: 3.5
-  zoomSpeed: 0.005
+  zoomSpeed: 0.01
 --- !u!1 &677265059
 GameObject:
   m_ObjectHideFlags: 0
@@ -8074,7 +8074,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1212264089
 MonoBehaviour:
   m_ObjectHideFlags: 0
