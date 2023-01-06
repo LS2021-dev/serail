@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.TerrainTools;
 
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 10f;
     public float ladderSpeed = 2f;
     public float gravity = 3.5f;
+    public float zoomSpeed = 0.01f;
 
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private bool isClimbing;
+    private bool zoomActive = false;
+    private CinemachineVirtualCamera cinemachine;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
+        cinemachine = GameObject.FindWithTag("Cinemachine").GetComponent<CinemachineVirtualCamera>();
 
         Physics2D.IgnoreLayerCollision(6, 7);
     }
@@ -94,8 +99,25 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (zoomActive)
+        {
+            cinemachine.m_Lens.FieldOfView = Mathf.Lerp(cinemachine.m_Lens.FieldOfView, 100, zoomSpeed);
+        }
+        else
+        {
+            cinemachine.m_Lens.FieldOfView = Mathf.Lerp(cinemachine.m_Lens.FieldOfView, 60, zoomSpeed);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.CompareTag("Ladder"))
+        {
+            zoomActive = true;
+        }
+
         if (col.gameObject.CompareTag("LadderTop"))
         {
             rb.gravityScale = 0f;
@@ -118,6 +140,8 @@ public class Player : MonoBehaviour
             rb.gravityScale = gravity;
             isClimbing = false;
             animator.SetBool("IsClimbing", false);
+            // zoom out camera smoothly
+            zoomActive = false;
         }
     }
 }
