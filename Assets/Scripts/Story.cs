@@ -23,8 +23,10 @@ public class Story : MonoBehaviour
     private Rigidbody2D osminRb;
     private Rigidbody2D selimRb;
 
-    public DialogueTrigger dialogueTrigger;
+    public DialogueTrigger dialogueTrigger1;
+    public DialogueTrigger dialogueTrigger4;
     public static bool freezePlayer = false;
+    public GameObject pedrilloHearts;
 
     private int storyId = 0;
 
@@ -74,14 +76,22 @@ public class Story : MonoBehaviour
         if (id == 0)
         {
             controlDoor1.OpenDoor();
-            dialogueTrigger.StartDialogue();
+            dialogueTrigger1.StartDialogue();
         }
         else if (id == 1)
         {
             controlDoor1.CloseDoor();
         }
-        else if (id == 2)
+        else if (id == 4)
         {
+            pedrilloHearts.SetActive(true);
+            StartCoroutine(TriggerDialogue4(1.5f));
         }
     }
+    private IEnumerator TriggerDialogue4(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dialogueTrigger4.StartDialogue();
+    }
+    
 }

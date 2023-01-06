@@ -31,6 +31,11 @@ public class DialogueManager : MonoBehaviour
         {
             GameObject.Find("Dialogue_2").GetComponent<TransformTrigger>().enabled = false;
         }
+
+        if (dialogueIndex == 4)
+        {
+            GameObject.Find("Dialogue_3").GetComponent<TransformTrigger>().enabled = false;
+        }
     }
 
     void DisplayMessage()

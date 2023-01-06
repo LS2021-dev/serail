@@ -140,7 +140,6 @@ public class Player : MonoBehaviour
             rb.gravityScale = gravity;
             isClimbing = false;
             animator.SetBool("IsClimbing", false);
-            // zoom out camera smoothly
             zoomActive = false;
         }
     }

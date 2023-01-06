@@ -633,6 +633,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273080337}
   m_CullTransparentMesh: 1
+--- !u!1 &314239503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314239504}
+  - component: {fileID: 314239506}
+  - component: {fileID: 314239505}
+  m_Layer: 0
+  m_Name: Dialogue_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314239504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314239503}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 2.6411, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370741854}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314239505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314239503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3958649c90d509b4b9ce3511248fc796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - actorId: 0
+    message: "Was das f\xFCr einen abscheulichen Spektakel macht."
+  actors:
+  - name: Pedrillo
+    sprite: {fileID: 21300000, guid: 3916255c0282315489271490fdd85346, type: 3}
+--- !u!114 &314239506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314239503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577c3dc47c1f4934a8a299e2bec47aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 314239505}
+  songTrigger: {fileID: 0}
+  isSong: 0
 --- !u!1 &398814915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1547,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45833334, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!1 &549469990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549469992}
+  - component: {fileID: 549469991}
+  m_Layer: 0
+  m_Name: Dialogue_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &549469991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549469990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3958649c90d509b4b9ce3511248fc796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - actorId: 0
+    message: Alles liegt auf dem Ohr. Es ist alles ruhig
+  - actorId: 1
+    message: "Nun, so la\xDF uns befreien. Wo ist die Leiter?"
+  - actorId: 0
+    message: "Nicht so hitzig. Ich mu\xDF erst das Signal geben."
+  actors:
+  - name: Pedrillo
+    sprite: {fileID: 21300000, guid: 3916255c0282315489271490fdd85346, type: 3}
+  - name: Belmonte
+    sprite: {fileID: 21300000, guid: 952f822b003f8874eab9ea9c486f3cf7, type: 3}
+--- !u!4 &549469992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549469990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370741854}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574318775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2607,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1370741854}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &868434464
 MonoBehaviour:
@@ -2905,7 +3027,7 @@ GameObject:
   - component: {fileID: 1153531742}
   - component: {fileID: 1153531741}
   m_Layer: 0
-  m_Name: Hearts
+  m_Name: Pedrillo_Hearts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7747,7 +7869,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1370741854}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1176203958
 MonoBehaviour:
@@ -13067,7 +13189,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1370741854}
   - component: {fileID: 1370741853}
-  - component: {fileID: 1370741855}
   m_Layer: 0
   m_Name: Story
   m_TagString: Untagged
@@ -13087,7 +13208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87382ab473347c40a4e255135618678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTrigger: {fileID: 1370741855}
+  dialogueTrigger1: {fileID: 549469991}
+  dialogueTrigger4: {fileID: 1711821994}
+  pedrilloHearts: {fileID: 1153531739}
 --- !u!4 &1370741854
 Transform:
   m_ObjectHideFlags: 0
@@ -13100,35 +13223,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 549469992}
   - {fileID: 1176203956}
   - {fileID: 868434463}
+  - {fileID: 314239504}
+  - {fileID: 1711821995}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370741855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370741852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3958649c90d509b4b9ce3511248fc796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages:
-  - actorId: 0
-    message: Alles liegt auf dem Ohr. Es ist alles ruhig
-  - actorId: 1
-    message: "Nun, so la\xDF uns befreien. Wo ist die Leiter?"
-  - actorId: 0
-    message: "Nicht so hitzig. Ich mu\xDF erst das Signal geben."
-  actors:
-  - name: Pedrillo
-    sprite: {fileID: 21300000, guid: 3916255c0282315489271490fdd85346, type: 3}
-  - name: Belmonte
-    sprite: {fileID: 21300000, guid: 952f822b003f8874eab9ea9c486f3cf7, type: 3}
 --- !u!1 &1435387835
 GameObject:
   m_ObjectHideFlags: 0
@@ -37318,6 +37420,57 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1711821993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711821995}
+  - component: {fileID: 1711821994}
+  m_Layer: 0
+  m_Name: Dialogue_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1711821994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711821993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3958649c90d509b4b9ce3511248fc796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - actorId: 0
+    message: 'Nur fort! nicht geplaudert, Nur frisch nach dem Strande zu! Ich komme
+      gleich nach. '
+  actors:
+  - name: Pedrillo
+    sprite: {fileID: 21300000, guid: 3916255c0282315489271490fdd85346, type: 3}
+--- !u!4 &1711821995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711821993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370741854}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820150885
 GameObject:
   m_ObjectHideFlags: 0
