@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -15,7 +16,7 @@ public class Story : MonoBehaviour
     private GameObject konstanze;
     private GameObject osmin;
     private GameObject selim;
-    
+
     private Rigidbody2D playerRb;
     private Rigidbody2D pedrilloRb;
     private Rigidbody2D konstanzeRb;
@@ -51,11 +52,7 @@ public class Story : MonoBehaviour
     {
         if (storyId == 1)
         {
-            if (pedrilloRb.position.x == 2)
-            {
-                freezePlayer = false;
-            }
-            else
+            if (pedrilloRb.position.x != 2)
             {
                 pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                     new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
@@ -74,7 +71,10 @@ public class Story : MonoBehaviour
         }
         else if (id == 1)
         {
-            freezePlayer = true;
+            controlDoor1.CloseDoor();
+        }
+        else if (id == 2)
+        {
         }
     }
 }

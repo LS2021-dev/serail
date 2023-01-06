@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!DialogueManager.isDialogueActive && !Story.freezePlayer)
+        if (!DialogueManager.isDialogueActive && !Story.freezePlayer && !SongManager.isSongActive)
         {
             x = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(x));
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.isDialogueActive)
+        if (DialogueManager.isDialogueActive || Story.freezePlayer || SongManager.isSongActive)
         {
             speed = 0f;
             jumpForce = 0f;

@@ -25,12 +25,23 @@ public class Pedrillo : MonoBehaviour
         {
             animator.SetBool("IsKneeling", true);
         }
+
+        if (transform.position.x > previous.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (transform.position.x < previous.x)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void FixedUpdate()
     {
         velocity = (transform.position - previous).magnitude / Time.deltaTime;
         previous = transform.position;
+
+
         animator.SetFloat("Speed", velocity);
     }
 }
