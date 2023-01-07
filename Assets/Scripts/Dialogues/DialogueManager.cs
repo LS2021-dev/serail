@@ -27,15 +27,6 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Started conversation! Loaded messages: " + messages.Length);
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
-        if (dialogueIndex == 3)
-        {
-            GameObject.Find("Dialogue_2").GetComponent<TransformTrigger>().enabled = false;
-        }
-
-        if (dialogueIndex == 4)
-        {
-            GameObject.Find("Dialogue_3").GetComponent<TransformTrigger>().enabled = false;
-        }
     }
 
     void DisplayMessage()

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float ladderSpeed = 2f;
     public float gravity = 3.5f;
     public float zoomSpeed = 0.01f;
+    [HideInInspector] public bool faceRight = true;
 
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
@@ -78,9 +79,10 @@ public class Player : MonoBehaviour
         }
 
         rb.velocity = new Vector2(x * speed, rb.velocity.y);
-        if (x > 0)
+        if (x > 0 || faceRight)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            faceRight = false;
         }
         else if (x < 0)
         {
