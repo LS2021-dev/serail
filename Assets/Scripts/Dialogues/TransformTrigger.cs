@@ -22,7 +22,7 @@ public class TransformTrigger : MonoBehaviour
     {
         if (boxCollider.OverlapPoint(transform.position) || circleCollider.OverlapPoint(transform.position))
         {
-            this.GetComponent<TransformTrigger>().enabled = false;
+            GetComponent<TransformTrigger>().enabled = false;
             if (isSong)
             {
                 songTrigger.StartSong();

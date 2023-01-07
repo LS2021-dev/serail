@@ -135,8 +135,7 @@ public class Story : MonoBehaviour
         }
         else if (id == 6)
         {
-            osminNotes.SetActive(true);
-            songTrigger6.StartSong();
+            StartCoroutine(TriggerDialogue6(0.5f));
         }
         // else if (id == 7)
         // {
@@ -153,5 +152,12 @@ public class Story : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         dialogueTrigger4.StartDialogue();
+    }
+    
+    private IEnumerator TriggerDialogue6(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        osminNotes.SetActive(true);
+        songTrigger6.StartSong();
     }
 }

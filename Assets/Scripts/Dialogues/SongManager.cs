@@ -28,13 +28,13 @@ public class SongManager : MonoBehaviour
         currentActor = actor;
         currentLyrics = lyrics;
         currentActorSprite = actorSprite;
-        backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
             pedrilloNotes.SetActive(true);
         }
-        FindObjectOfType<DialogueManager>().dialogueIndex++;
         DisplaySong();
+        backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
+        FindObjectOfType<DialogueManager>().dialogueIndex++;
     }
 
     void DisplaySong()
@@ -46,6 +46,7 @@ public class SongManager : MonoBehaviour
 
     void CloseSongBox()
     {
+        Debug.Log("HI");
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         FindObjectOfType<Story>().Execute(FindObjectOfType<DialogueManager>().dialogueIndex);
         isSongActive = false;
