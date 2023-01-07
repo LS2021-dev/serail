@@ -374,6 +374,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.61856914, y: 7.6671305}
   m_EdgeRadius: 0
+--- !u!1 &113137783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113137785}
+  - component: {fileID: 113137784}
+  m_Layer: 0
+  m_Name: Arie_Osmin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &113137784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113137783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af976320e9b0274eade122d382dc2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Arie (Osmin)
+  lyrics: "O, wie will ich triumphieren,<br>Wenn sie euch zum Richtplatz f\xFChren<br>Und
+    die H\xE4lse schn\xFCren zu!"
+  actorSprite: {fileID: 21300000, guid: 399fc54d87a248643812ed6355659368, type: 3}
+--- !u!4 &113137785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113137783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370741854}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154519110
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +836,7 @@ GameObject:
   - component: {fileID: 398814921}
   - component: {fileID: 398814920}
   - component: {fileID: 398814919}
+  - component: {fileID: 398814922}
   m_Layer: 7
   m_Name: Selim
   m_TagString: Untagged
@@ -945,6 +994,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &398814922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398814915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a174d58d68ff041b7e23769d686c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459214350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,6 +2280,7 @@ MonoBehaviour:
   ladderSpeed: 2
   gravity: 3.5
   zoomSpeed: 0.01
+  faceRight: 1
 --- !u!1 &677265059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,8 +2490,8 @@ MonoBehaviour:
   actorName: {fileID: 1032307219}
   messageText: {fileID: 1475692249}
   backgroundBox: {fileID: 720480968}
-  notesPedrillo: {fileID: 1487921357}
-  notesOsmin: {fileID: 1248022159}
+  pedrilloNotes: {fileID: 1487921357}
+  osminNotes: {fileID: 1248022159}
 --- !u!1 &815530989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7910,6 +7972,54 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1167767956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167767958}
+  - component: {fileID: 1167767957}
+  m_Layer: 0
+  m_Name: Chor_der_Janitscharen_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167767957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167767956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af976320e9b0274eade122d382dc2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Chor der Janitscharen
+  lyrics: "Singt dem gro\xDFen Bassa Lieder<br>T\xF6ne feuriger Gesang;<br>Und vom
+    Ufer halle wieder<br>Unsrer Lieder Jubelklang."
+  actorSprite: {fileID: 21300000, guid: 21e5dfd334199604db6489b3454eb461, type: 3}
+--- !u!4 &1167767958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167767956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370741854}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176203955
 GameObject:
   m_ObjectHideFlags: 0
@@ -7970,10 +8080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af976320e9b0274eade122d382dc2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actor: Romanze (Pedrillo)
   lyrics: "In Mohrenland gefangen war<br>Ein M\xE4del h\xFCbsch und fein;<br>Sah
     rot und wei\xDF, war schwarz von Haar,<br>Seufzt Tag und Nacht und weinte gar,<br>Wollt'
     gern erl\xF6set sein."
-  actor: Romanze (Pedrillo)
   actorSprite: {fileID: 21300000, guid: 3916255c0282315489271490fdd85346, type: 3}
 --- !u!1 &1212264082
 GameObject:
@@ -8249,7 +8359,7 @@ GameObject:
   - component: {fileID: 1248022162}
   - component: {fileID: 1248022161}
   m_Layer: 0
-  m_Name: Notes_Osmin
+  m_Name: Osmin_Notes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13283,8 +13393,11 @@ MonoBehaviour:
   dialogueTrigger1: {fileID: 549469991}
   dialogueTrigger2: {fileID: 868434464}
   dialogueTrigger4: {fileID: 1711821994}
+  songTrigger6: {fileID: 113137784}
+  songTrigger7: {fileID: 1167767957}
   pedrilloHearts: {fileID: 1153531739}
   pedrilloNotes: {fileID: 1487921357}
+  osminNotes: {fileID: 1248022159}
 --- !u!4 &1370741854
 Transform:
   m_ObjectHideFlags: 0
@@ -13303,6 +13416,8 @@ Transform:
   - {fileID: 314239504}
   - {fileID: 1711821995}
   - {fileID: 54836254}
+  - {fileID: 113137785}
+  - {fileID: 1167767958}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

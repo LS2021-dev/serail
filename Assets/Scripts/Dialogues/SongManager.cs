@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SongManager : MonoBehaviour
@@ -13,9 +14,9 @@ public class SongManager : MonoBehaviour
     public TextMeshProUGUI messageText;
     public RectTransform backgroundBox;
 
-    public GameObject notesPedrillo;
-    public GameObject notesOsmin;
-
+    public GameObject pedrilloNotes;
+    public GameObject osminNotes;
+    
     public static bool isSongActive = false;
     private string currentActor;
     private string currentLyrics;
@@ -28,12 +29,12 @@ public class SongManager : MonoBehaviour
         currentLyrics = lyrics;
         currentActorSprite = actorSprite;
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
-        FindObjectOfType<DialogueManager>().dialogueIndex++;
-        DisplaySong();
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
-            notesPedrillo.SetActive(true);
+            pedrilloNotes.SetActive(true);
         }
+        FindObjectOfType<DialogueManager>().dialogueIndex++;
+        DisplaySong();
     }
 
     void DisplaySong()

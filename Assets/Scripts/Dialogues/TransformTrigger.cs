@@ -22,7 +22,6 @@ public class TransformTrigger : MonoBehaviour
     {
         if (boxCollider.OverlapPoint(transform.position) || circleCollider.OverlapPoint(transform.position))
         {
-            Debug.Log("Player is in the trigger");
             this.GetComponent<TransformTrigger>().enabled = false;
             if (isSong)
             {

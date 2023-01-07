@@ -24,7 +24,6 @@ public class DialogueManager : MonoBehaviour
         activeMessage = 0;
         isDialogueActive = true;
         dialogueIndex++;
-        Debug.Log("Started conversation! Loaded messages: " + messages.Length);
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
     }
@@ -48,7 +47,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             FindObjectOfType<Story>().Execute(dialogueIndex);
             isDialogueActive = false;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SongTrigger : MonoBehaviour
 {
-    public string lyrics;
     public string actor;
+    public string lyrics;
     public Sprite actorSprite;
     
     public void StartSong()

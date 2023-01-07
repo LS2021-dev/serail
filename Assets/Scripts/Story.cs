@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -24,9 +25,12 @@ public class Story : MonoBehaviour
     public DialogueTrigger dialogueTrigger1;
     public DialogueTrigger dialogueTrigger2;
     public DialogueTrigger dialogueTrigger4;
-    public static bool freezePlayer = false;
+    public SongTrigger songTrigger6;
+    public SongTrigger songTrigger7;
+    
     public GameObject pedrilloHearts;
     public GameObject pedrilloNotes;
+    public GameObject osminNotes;
 
     private int storyId = 0;
 
@@ -87,6 +91,13 @@ public class Story : MonoBehaviour
                 osminRb.position = Vector3.MoveTowards(osminRb.position,
                     new Vector3(13, osminRb.position.y, 0), 0.1f);
             }
+        } else if (storyId == 8)
+        {
+            if (selimRb.position.x != 16)
+            {
+                selimRb.position = Vector3.MoveTowards(selimRb.position,
+                    new Vector3(16, selimRb.position.y, 0), 0.1f);
+            }
         }
     }
 
@@ -122,6 +133,20 @@ public class Story : MonoBehaviour
             osmin.GetComponent<SpriteRenderer>().enabled = true;
             player.GetComponent<Player>().faceRight = true;
         }
+        else if (id == 6)
+        {
+            osminNotes.SetActive(true);
+            songTrigger6.StartSong();
+        }
+        // else if (id == 7)
+        // {
+        //     osminNotes.SetActive(false);
+        //     // songTrigger7.StartSong();
+        // }
+        // else if (id == 8)
+        // {
+        //     selim.GetComponent<SpriteRenderer>().enabled = true;
+        // }
     }
 
     private IEnumerator TriggerDialogue4(float delay)
