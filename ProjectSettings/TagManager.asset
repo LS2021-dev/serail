@@ -54,3 +54,6 @@ TagManager:
   - name: Particles
     uniqueID: 2945170165
     locked: 0
+  - name: Map
+    uniqueID: 1301608221
+    locked: 0
