@@ -7,7 +7,7 @@ public class SongTrigger : MonoBehaviour
     public string actor;
     public string lyrics;
     public Sprite actorSprite;
-    public AudioSource audio;
+    public AudioSource audioSource;
     public bool wait;
     
     public void StartSong()
@@ -18,13 +18,13 @@ public class SongTrigger : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<SongManager>().OpenSongBox(actor, lyrics, actorSprite, audio);
+            FindObjectOfType<SongManager>().OpenSongBox(actor, lyrics, actorSprite, audioSource);
         }
     }
     
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<SongManager>().OpenSongBox(actor, lyrics, actorSprite, audio);
+        FindObjectOfType<SongManager>().OpenSongBox(actor, lyrics, actorSprite, audioSource);
     }
 }

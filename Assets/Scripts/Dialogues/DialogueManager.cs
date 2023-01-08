@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     Message[] currentMessages;
     Actor[] currentActors;
+    private AudioSource currentAudio;
     int activeMessage = 0;
     public static bool isDialogueActive = false;
     [HideInInspector] public int dialogueIndex = 0;
@@ -32,6 +33,8 @@ public class DialogueManager : MonoBehaviour
     {
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
+        currentAudio = messageToDisplay.audioSource;
+        currentAudio.Play();
         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
         actorName.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;
@@ -52,10 +55,12 @@ public class DialogueManager : MonoBehaviour
         activeMessage++;
         if (activeMessage < currentMessages.Length)
         {
+            currentAudio.Stop();
             DisplayMessage();
         }
         else
         {
+            currentAudio.Stop();
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             FindObjectOfType<Story>().Execute(dialogueIndex);
             isDialogueActive = false;
