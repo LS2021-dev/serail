@@ -35,6 +35,15 @@ public class DialogueManager : MonoBehaviour
         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
         actorName.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;
+        if (messageToDisplay.message.Split(' ').Length > 50)
+        {
+            messageText.fontSize = 15;
+
+        }
+        else
+        {
+            messageText.fontSize = 20;
+        }
         AnimateTextColor();
     }
 

@@ -31,8 +31,6 @@ public class Player : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
         cinemachine = GameObject.FindWithTag("Cinemachine").GetComponent<CinemachineVirtualCamera>();
-
-        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     // Update is called once per frame

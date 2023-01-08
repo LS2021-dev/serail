@@ -25,9 +25,10 @@ public class Story : MonoBehaviour
     public DialogueTrigger dialogueTrigger1;
     public DialogueTrigger dialogueTrigger2;
     public DialogueTrigger dialogueTrigger4;
-    public SongTrigger songTrigger6;
-    public SongTrigger songTrigger7;
-    
+    public DialogueTrigger dialogueTrigger6;
+    public SongTrigger songTrigger2;
+    public SongTrigger songTrigger3;
+
     public GameObject pedrilloHearts;
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
@@ -58,46 +59,28 @@ public class Story : MonoBehaviour
     {
         if (storyId == 1)
         {
-            if (pedrilloRb.position.x != 2)
-            {
-                pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
-                    new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
-            }
+            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position, 
+                new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
         }
         else if (storyId == 3)
         {
-            if (pedrilloRb.position.x != 4)
-            {
-                pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
-                    new Vector3(4, pedrilloRb.position.y, 0), 0.1f);
-            }
+            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position, 
+                new Vector3(4, pedrilloRb.position.y, 0), 0.1f);
         }
         else if (storyId == 5)
         {
-            if (konstanzeRb.position.x != 9)
-            {
-                konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position,
-                    new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
-            }
+            konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position, 
+                new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
 
-            if (playerRb.position.x != 8)
-            {
-                playerRb.position = Vector3.MoveTowards(playerRb.position,
-                    new Vector3(8, playerRb.position.y, 0), 0.1f);
-            }
-
-            if (osminRb.position.x != 13)
-            {
-                osminRb.position = Vector3.MoveTowards(osminRb.position,
-                    new Vector3(13, osminRb.position.y, 0), 0.1f);
-            }
-        } else if (storyId == 8)
+            playerRb.position = Vector3.MoveTowards(playerRb.position, 
+                new Vector3(8, playerRb.position.y, 0), 0.1f);
+            osminRb.position = Vector3.MoveTowards(osminRb.position, 
+                new Vector3(13, osminRb.position.y, 0), 0.1f);
+        }
+        else if (storyId == 7)
         {
-            if (selimRb.position.x != 16)
-            {
-                selimRb.position = Vector3.MoveTowards(selimRb.position,
-                    new Vector3(16, selimRb.position.y, 0), 0.1f);
-            }
+            selimRb.position = Vector3.MoveTowards(selimRb.position, 
+                new Vector3(12, selimRb.position.y, 0), 0.1f);
         }
     }
 
@@ -135,29 +118,23 @@ public class Story : MonoBehaviour
         }
         else if (id == 6)
         {
-            StartCoroutine(TriggerDialogue6(0.5f));
+            songTrigger2.StartSong();
         }
-        // else if (id == 7)
-        // {
-        //     osminNotes.SetActive(false);
-        //     // songTrigger7.StartSong();
-        // }
-        // else if (id == 8)
-        // {
-        //     selim.GetComponent<SpriteRenderer>().enabled = true;
-        // }
+        else if (id == 7)
+        {
+            osminNotes.SetActive(false);
+            songTrigger3.StartSong();
+            selim.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else if (id == 8)
+        {
+            dialogueTrigger6.StartDialogue();
+        }
     }
 
     private IEnumerator TriggerDialogue4(float delay)
     {
         yield return new WaitForSeconds(delay);
         dialogueTrigger4.StartDialogue();
-    }
-    
-    private IEnumerator TriggerDialogue6(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        osminNotes.SetActive(true);
-        songTrigger6.StartSong();
     }
 }

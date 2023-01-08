@@ -31,6 +31,9 @@ public class SongManager : MonoBehaviour
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
             pedrilloNotes.SetActive(true);
+        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 6)
+        {
+            osminNotes.SetActive(true);
         }
         DisplaySong();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
@@ -46,7 +49,6 @@ public class SongManager : MonoBehaviour
 
     void CloseSongBox()
     {
-        Debug.Log("HI");
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         FindObjectOfType<Story>().Execute(FindObjectOfType<DialogueManager>().dialogueIndex);
         isSongActive = false;
