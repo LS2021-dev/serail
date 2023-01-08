@@ -21,13 +21,15 @@ public class SongManager : MonoBehaviour
     private string currentActor;
     private string currentLyrics;
     private Sprite currentActorSprite;
+    private AudioSource currentAudioSource;
 
-    public void OpenSongBox(string actor, string lyrics, Sprite actorSprite)
+    public void OpenSongBox(string actor, string lyrics, Sprite actorSprite, AudioSource audio)
     {
         isSongActive = true;
         currentActor = actor;
         currentLyrics = lyrics;
         currentActorSprite = actorSprite;
+        currentAudioSource = audio;;
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
             pedrilloNotes.SetActive(true);
@@ -42,6 +44,7 @@ public class SongManager : MonoBehaviour
 
     void DisplaySong()
     {
+        currentAudioSource.Play();
         actorName.text = currentActor;
         messageText.text = currentLyrics;
         actorImage.sprite = currentActorSprite;
@@ -49,6 +52,7 @@ public class SongManager : MonoBehaviour
 
     void CloseSongBox()
     {
+        currentAudioSource.Stop();
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         FindObjectOfType<Story>().Execute(FindObjectOfType<DialogueManager>().dialogueIndex);
         isSongActive = false;
