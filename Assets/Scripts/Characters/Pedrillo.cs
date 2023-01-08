@@ -8,12 +8,18 @@ public class Pedrillo : MonoBehaviour
     private Animator animator;
     private Vector3 previous;
     private float velocity;
-    private bool isKneeling = false;
+    private CircleCollider2D circleCollider;
+    private BoxCollider2D boxCollider;
+    private float oldY;
+    [HideInInspector] public bool isKneeling = false;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        circleCollider = GetComponent<CircleCollider2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        oldY = boxCollider.size.y;
     }
 
     // Update is called once per frame
@@ -22,6 +28,14 @@ public class Pedrillo : MonoBehaviour
         if (isKneeling)
         {
             animator.SetBool("IsKneeling", true);
+            circleCollider.enabled = false;
+            boxCollider.size = new Vector2(boxCollider.size.x, 0.25f);
+        }
+        else
+        {
+            animator.SetBool("IsKneeling", false);
+            circleCollider.enabled = true;
+            boxCollider.size = new Vector2(boxCollider.size.x, oldY);
         }
 
         if (transform.position.x > previous.x)
@@ -38,7 +52,7 @@ public class Pedrillo : MonoBehaviour
     {
         velocity = (transform.position - previous).magnitude / Time.deltaTime;
         previous = transform.position;
-        
+
         animator.SetFloat("Speed", velocity);
     }
 }

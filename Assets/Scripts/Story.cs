@@ -26,8 +26,10 @@ public class Story : MonoBehaviour
     public DialogueTrigger dialogueTrigger2;
     public DialogueTrigger dialogueTrigger4;
     public DialogueTrigger dialogueTrigger6;
+    public DialogueTrigger dialogueTrigger7;
     public SongTrigger songTrigger2;
     public SongTrigger songTrigger3;
+    public SongTrigger songTrigger4;
 
     public GameObject pedrilloHearts;
     public GameObject pedrilloNotes;
@@ -59,28 +61,33 @@ public class Story : MonoBehaviour
     {
         if (storyId == 1)
         {
-            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position, 
+            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                 new Vector3(2, pedrilloRb.position.y, 0), 0.1f);
         }
         else if (storyId == 3)
         {
-            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position, 
+            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                 new Vector3(4, pedrilloRb.position.y, 0), 0.1f);
         }
         else if (storyId == 5)
         {
-            konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position, 
+            konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position,
                 new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
 
-            playerRb.position = Vector3.MoveTowards(playerRb.position, 
+            playerRb.position = Vector3.MoveTowards(playerRb.position,
                 new Vector3(8, playerRb.position.y, 0), 0.1f);
-            osminRb.position = Vector3.MoveTowards(osminRb.position, 
+            osminRb.position = Vector3.MoveTowards(osminRb.position,
                 new Vector3(13, osminRb.position.y, 0), 0.1f);
         }
         else if (storyId == 7)
         {
-            selimRb.position = Vector3.MoveTowards(selimRb.position, 
+            selimRb.position = Vector3.MoveTowards(selimRb.position,
                 new Vector3(12, selimRb.position.y, 0), 0.1f);
+        }
+        else if (storyId == 9)
+        {
+            pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
+                new Vector3(11, pedrilloRb.position.y, 0), 0.1f);
         }
     }
 
@@ -130,11 +137,26 @@ public class Story : MonoBehaviour
         {
             dialogueTrigger6.StartDialogue();
         }
+        else if (id == 9)
+        {
+            StartCoroutine(WaitForPedrillo());
+        }
+        else if (id == 10)
+        {
+            songTrigger4.StartSong();
+        }
     }
 
     private IEnumerator TriggerDialogue4(float delay)
     {
         yield return new WaitForSeconds(delay);
         dialogueTrigger4.StartDialogue();
+    }
+
+    private IEnumerator WaitForPedrillo()
+    {
+        yield return new WaitUntil(() => pedrilloRb.position.x == 11);
+        pedrillo.GetComponent<Pedrillo>().isKneeling = true;
+        dialogueTrigger7.StartDialogue();
     }
 }
