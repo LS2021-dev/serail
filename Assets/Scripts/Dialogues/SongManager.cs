@@ -16,6 +16,7 @@ public class SongManager : MonoBehaviour
 
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
+    public GameObject globalNotes;
     public AudioSource ouverture;
 
     public static bool isSongActive = false;
@@ -32,13 +33,19 @@ public class SongManager : MonoBehaviour
         currentActorSprite = actorSprite;
         currentAudioSource = audio;
         ;
-        if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
+        if (FindObjectOfType<DialogueManager>().dialogueIndex == 1)
         {
             pedrilloNotes.SetActive(true);
         }
         else if (FindObjectOfType<DialogueManager>().dialogueIndex == 6)
         {
             osminNotes.SetActive(true);
+        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 7)
+        {
+            globalNotes.SetActive(true);
+        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 10)
+        {
+            globalNotes.SetActive(true);
         }
 
         DisplaySong();

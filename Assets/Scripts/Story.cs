@@ -34,6 +34,7 @@ public class Story : MonoBehaviour
     public GameObject pedrilloHearts;
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
+    public GameObject globalNotes;
 
     private int storyId = 0;
 
@@ -135,6 +136,7 @@ public class Story : MonoBehaviour
         }
         else if (id == 8)
         {
+            globalNotes.SetActive(false);
             dialogueTrigger6.StartDialogue();
         }
         else if (id == 9)
@@ -144,6 +146,9 @@ public class Story : MonoBehaviour
         else if (id == 10)
         {
             songTrigger4.StartSong();
+        } else if (id == 11)
+        {
+            globalNotes.SetActive(false);
         }
     }
 
