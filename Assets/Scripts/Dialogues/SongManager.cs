@@ -16,7 +16,8 @@ public class SongManager : MonoBehaviour
 
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
-    
+    public AudioSource ouverture;
+
     public static bool isSongActive = false;
     private string currentActor;
     private string currentLyrics;
@@ -29,14 +30,17 @@ public class SongManager : MonoBehaviour
         currentActor = actor;
         currentLyrics = lyrics;
         currentActorSprite = actorSprite;
-        currentAudioSource = audio;;
+        currentAudioSource = audio;
+        ;
         if (FindObjectOfType<DialogueManager>().dialogueIndex == 2)
         {
             pedrilloNotes.SetActive(true);
-        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 6)
+        }
+        else if (FindObjectOfType<DialogueManager>().dialogueIndex == 6)
         {
             osminNotes.SetActive(true);
         }
+
         DisplaySong();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
         FindObjectOfType<DialogueManager>().dialogueIndex++;
@@ -44,6 +48,8 @@ public class SongManager : MonoBehaviour
 
     void DisplaySong()
     {
+        FindObjectOfType<AudioFade>().FadeOut(ouverture, 0.5f);
+        ouverture.Pause();
         currentAudioSource.Play();
         actorName.text = currentActor;
         messageText.text = currentLyrics;
@@ -53,6 +59,8 @@ public class SongManager : MonoBehaviour
     void CloseSongBox()
     {
         currentAudioSource.Stop();
+        ouverture.UnPause();
+        FindObjectOfType<AudioFade>().FadeIn(ouverture, 0.5f);
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         FindObjectOfType<Story>().Execute(FindObjectOfType<DialogueManager>().dialogueIndex);
         isSongActive = false;
