@@ -1,6 +1,6 @@
-using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -11,8 +11,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI messageText;
     public RectTransform backgroundBox;
 
+    private string[] actorNames = {"Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim"};
+
     Message[] currentMessages;
     Actor[] currentActors;
+    private GameObject currentLight;
     private AudioSource currentAudio;
     int activeMessage = 0;
     public static bool isDialogueActive = false;
@@ -47,12 +50,21 @@ public class DialogueManager : MonoBehaviour
         {
             messageText.fontSize = 20;
         }
+        foreach (var s in actorNames)
+        {
+            if (actorName.text.Contains(s))
+            {
+                currentLight = GameObject.Find(s + " Light");
+                currentLight.GetComponent<Light2D>().enabled = true;
+            }
+        }
         AnimateTextColor();
     }
 
     public void NextMessage()
     {
         activeMessage++;
+        currentLight.GetComponent<Light2D>().enabled = false;
         if (activeMessage < currentMessages.Length)
         {
             currentAudio.Stop();

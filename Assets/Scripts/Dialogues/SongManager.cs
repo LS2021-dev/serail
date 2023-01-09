@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -18,8 +18,11 @@ public class SongManager : MonoBehaviour
     public GameObject osminNotes;
     public GameObject globalNotes;
     public AudioSource ouverture;
+    
+    private string[] actorNames = {"Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim"};
 
     public static bool isSongActive = false;
+    private GameObject currentLight;
     private string currentActor;
     private string currentLyrics;
     private Sprite currentActorSprite;
@@ -61,6 +64,14 @@ public class SongManager : MonoBehaviour
         actorName.text = currentActor;
         messageText.text = currentLyrics;
         actorImage.sprite = currentActorSprite;
+        foreach (var s in actorNames)
+        {
+            if (actorName.text.Contains(s))
+            {
+                currentLight = GameObject.Find(s + " Light");
+                currentLight.GetComponent<Light2D>().enabled = true;
+            }
+        }
     }
 
     void CloseSongBox()
@@ -70,6 +81,7 @@ public class SongManager : MonoBehaviour
         FindObjectOfType<AudioFade>().FadeIn(ouverture, 0.5f);
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         FindObjectOfType<Story>().Execute(FindObjectOfType<DialogueManager>().dialogueIndex);
+        currentLight.GetComponent<Light2D>().enabled = false;
         isSongActive = false;
     }
 
