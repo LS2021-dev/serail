@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space) && !PauseMenu.GameIsPaused)
         {
             NextMessage();
         }

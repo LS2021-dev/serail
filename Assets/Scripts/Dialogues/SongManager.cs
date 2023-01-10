@@ -92,7 +92,7 @@ public class SongManager : MonoBehaviour
 
     void Update()
     {
-        if (isSongActive && Input.GetKeyDown(KeyCode.Space))
+        if (isSongActive && Input.GetKeyDown(KeyCode.Space) && !PauseMenu.GameIsPaused)
         {
             CloseSongBox();
         }
