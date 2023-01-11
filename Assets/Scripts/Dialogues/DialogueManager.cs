@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         {
             messageText.fontSize = 20;
         }
+        
         foreach (var s in actorNames)
         {
             if (actorName.text.Contains(s))

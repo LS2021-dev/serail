@@ -37,6 +37,7 @@ public class Story : MonoBehaviour
     public GameObject globalNotes;
 
     private int storyId = 0;
+    public static bool freezePlayer = false;
 
     void Start()
     {
@@ -74,13 +75,12 @@ public class Story : MonoBehaviour
         {
             konstanzeRb.position = Vector3.MoveTowards(konstanzeRb.position,
                 new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
-
             playerRb.position = Vector3.MoveTowards(playerRb.position,
                 new Vector3(8, playerRb.position.y, 0), 0.1f);
             osminRb.position = Vector3.MoveTowards(osminRb.position,
                 new Vector3(13, osminRb.position.y, 0), 0.1f);
         }
-        else if (storyId == 7)
+        else if (storyId == 8)
         {
             selimRb.position = Vector3.MoveTowards(selimRb.position,
                 new Vector3(12, selimRb.position.y, 0), 0.1f);
@@ -114,6 +114,7 @@ public class Story : MonoBehaviour
         {
             pedrilloHearts.SetActive(true);
             StartCoroutine(TriggerDialogue4(1.5f));
+            freezePlayer = true;
         }
         else if (id == 5)
         {
@@ -126,18 +127,19 @@ public class Story : MonoBehaviour
         }
         else if (id == 6)
         {
+            StartCoroutine(WaitForOsmin());
             songTrigger2.StartSong();
         }
         else if (id == 7)
         {
             osminNotes.SetActive(false);
             songTrigger3.StartSong();
-            selim.GetComponent<SpriteRenderer>().enabled = true;
+
         }
         else if (id == 8)
         {
-            globalNotes.SetActive(false);
-            dialogueTrigger6.StartDialogue();
+            selim.GetComponent<SpriteRenderer>().enabled = true;
+            StartCoroutine(WaitForSelim());
         }
         else if (id == 9)
         {
@@ -146,7 +148,8 @@ public class Story : MonoBehaviour
         else if (id == 10)
         {
             songTrigger4.StartSong();
-        } else if (id == 11)
+        }
+        else if (id == 11)
         {
             globalNotes.SetActive(false);
         }
@@ -158,10 +161,24 @@ public class Story : MonoBehaviour
         dialogueTrigger4.StartDialogue();
     }
 
+    private IEnumerator WaitForOsmin()
+    {
+        yield return new WaitUntil(() => osminRb.position.x == 13);
+        osminNotes.SetActive(true);
+    }
+
+    private IEnumerator WaitForSelim()
+    {
+        yield return new WaitUntil(() => selimRb.position.x == 12);
+        globalNotes.SetActive(false);
+        dialogueTrigger6.StartDialogue();
+    }
+
     private IEnumerator WaitForPedrillo()
     {
         yield return new WaitUntil(() => pedrilloRb.position.x == 11);
         pedrillo.GetComponent<Pedrillo>().isKneeling = true;
+        freezePlayer = false;
         dialogueTrigger7.StartDialogue();
     }
 }

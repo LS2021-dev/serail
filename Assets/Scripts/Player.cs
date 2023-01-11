@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!DialogueManager.isDialogueActive && !SongManager.isSongActive)
+        if (!DialogueManager.isDialogueActive && !SongManager.isSongActive && !Story.freezePlayer)
         {
             x = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(x));
@@ -56,6 +56,12 @@ public class Player : MonoBehaviour
             {
                 animator.speed = 1;
             }
+            
+            if (Input.GetKeyDown("space") && isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                animator.SetBool("IsJumping", true);
+            }
         }
         else
         {
@@ -65,7 +71,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.isDialogueActive || SongManager.isSongActive)
+        if (DialogueManager.isDialogueActive || SongManager.isSongActive || Story.freezePlayer)
         {
             speed = 0f;
             jumpForce = 0f;
@@ -85,12 +91,6 @@ public class Player : MonoBehaviour
         else if (x < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-
-        if (Input.GetKeyDown("space") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            animator.SetBool("IsJumping", true);
         }
 
         if (isClimbing)

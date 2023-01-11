@@ -18,8 +18,8 @@ public class SongManager : MonoBehaviour
     public GameObject osminNotes;
     public GameObject globalNotes;
     public AudioSource ouverture;
-    
-    private string[] actorNames = {"Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim"};
+
+    private string[] actorNames = { "Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim" };
 
     public static bool isSongActive = false;
     private GameObject currentLight;
@@ -43,10 +43,12 @@ public class SongManager : MonoBehaviour
         else if (FindObjectOfType<DialogueManager>().dialogueIndex == 6)
         {
             osminNotes.SetActive(true);
-        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 7)
+        }
+        else if (FindObjectOfType<DialogueManager>().dialogueIndex == 7)
         {
             globalNotes.SetActive(true);
-        } else if (FindObjectOfType<DialogueManager>().dialogueIndex == 10)
+        }
+        else if (FindObjectOfType<DialogueManager>().dialogueIndex == 10)
         {
             globalNotes.SetActive(true);
         }
