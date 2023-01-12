@@ -303,7 +303,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 613.1929, y: 87.9691}
+  m_SizeDelta: {x: 647.8617, y: 117.3044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922568137
 MonoBehaviour:
@@ -327,8 +327,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Von Wolfgang Steiner, Filip Rech und Ludwig Silbereisen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6022a59df102aa04ea4a7a483de578f0, type: 2}
+  m_sharedMaterial: {fileID: 7733105098440218876, guid: 6022a59df102aa04ea4a7a483de578f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 46.56
+  m_fontSizeBase: 46.56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 1919640257}
   - component: {fileID: 1919640256}
   - component: {fileID: 1919640255}
+  - component: {fileID: 1919640259}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -588,3 +589,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1919640259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919640254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f48797020a5134cbf1c8ed4e23a654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

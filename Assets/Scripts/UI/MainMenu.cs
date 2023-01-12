@@ -4,17 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Wie schafft man, dass das importiert wird?
     public GameObject settingsMenuUI;
-
+    
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+    
     public void StartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GetComponent<AudioSource>().Stop();
+        SceneManager.LoadScene("Main");
     }
 
     public void OptionsButton()
     {
-        throw new NotImplementedException();
+        settingsMenuUI.SetActive(true);
     }
 
     public void QuitButton()

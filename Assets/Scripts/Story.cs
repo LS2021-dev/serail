@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -35,6 +36,8 @@ public class Story : MonoBehaviour
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
     public GameObject globalNotes;
+    
+    public AudioSource ouverture;
 
     private int storyId = 0;
     public static bool freezePlayer = false;
@@ -55,6 +58,8 @@ public class Story : MonoBehaviour
         konstanzeRb = konstanze.GetComponent<Rigidbody2D>();
         osminRb = osmin.GetComponent<Rigidbody2D>();
         selimRb = selim.GetComponent<Rigidbody2D>();
+        
+        Cursor.visible = false;
 
         Execute(0);
     }
@@ -152,6 +157,8 @@ public class Story : MonoBehaviour
         else if (id == 11)
         {
             globalNotes.SetActive(false);
+            FindObjectOfType<AudioFade>().FadeOut(ouverture, 3f);
+            StartCoroutine(End());
         }
     }
 
@@ -180,5 +187,11 @@ public class Story : MonoBehaviour
         pedrillo.GetComponent<Pedrillo>().isKneeling = true;
         freezePlayer = false;
         dialogueTrigger7.StartDialogue();
+    }
+
+    private IEnumerator End()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("End");
     }
 }

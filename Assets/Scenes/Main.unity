@@ -24469,6 +24469,7 @@ MonoBehaviour:
   pedrilloNotes: {fileID: 1487921357}
   osminNotes: {fileID: 1248022159}
   globalNotes: {fileID: 1146863071}
+  ouverture: {fileID: 1370741855}
 --- !u!4 &1370741854
 Transform:
   m_ObjectHideFlags: 0
