@@ -36,7 +36,7 @@ public class Story : MonoBehaviour
     public GameObject pedrilloNotes;
     public GameObject osminNotes;
     public GameObject globalNotes;
-    
+
     public AudioSource ouverture;
 
     private int storyId = 0;
@@ -58,7 +58,7 @@ public class Story : MonoBehaviour
         konstanzeRb = konstanze.GetComponent<Rigidbody2D>();
         osminRb = osmin.GetComponent<Rigidbody2D>();
         selimRb = selim.GetComponent<Rigidbody2D>();
-        
+
         Cursor.visible = false;
 
         Execute(0);
@@ -139,7 +139,6 @@ public class Story : MonoBehaviour
         {
             osminNotes.SetActive(false);
             songTrigger3.StartSong();
-
         }
         else if (id == 8)
         {
@@ -191,7 +190,7 @@ public class Story : MonoBehaviour
 
     private IEnumerator End()
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("End");
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 }

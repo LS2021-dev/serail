@@ -9,7 +9,7 @@ public class SongTrigger : MonoBehaviour
     public Sprite actorSprite;
     public AudioSource audioSource;
     public bool wait;
-    
+
     public void StartSong()
     {
         if (wait)
@@ -21,7 +21,7 @@ public class SongTrigger : MonoBehaviour
             FindObjectOfType<SongManager>().OpenSongBox(actor, lyrics, actorSprite, audioSource);
         }
     }
-    
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);

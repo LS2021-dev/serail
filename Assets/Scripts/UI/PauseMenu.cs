@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    
+
     private AudioSource[] allAudioSources;
 
     public GameObject pauseMenuUI;
@@ -27,8 +27,8 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
         {
-            
         }
     }
 
@@ -37,9 +37,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-        foreach( AudioSource audioS in allAudioSources) {
+        foreach (AudioSource audioS in allAudioSources)
+        {
             audioS.UnPause();
         }
+
+        Cursor.visible = false;
 
         GameIsPaused = false;
     }
@@ -49,10 +52,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-        foreach( AudioSource audioS in allAudioSources) {
+        foreach (AudioSource audioS in allAudioSources)
+        {
             audioS.Pause();
         }
 
+        Cursor.visible = true;
         GameIsPaused = true;
     }
 
@@ -67,7 +72,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
-    
+
     public void QuitGame()
     {
         Debug.Log("Quitting Game...");

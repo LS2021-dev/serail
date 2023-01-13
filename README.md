@@ -9,19 +9,19 @@
 
 ## Steuerung
 
-| Taste       | Funktion                |
-|-------------|-------------------------|
-| `Leertaste` | springen/nächter Dialog |
-| `W`         | Leiter hochklettern     |
-| `A`         | links                   |
-| `S`         | Leiter runterklettern   |
-| `D`         | rechts                  |
-| `esc`       | Pause Menu              |
+| Taste                   | Funktion                                  |
+|-------------------------|-------------------------------------------|
+| `Leertaste`             | springen/nächter Dialog                   |
+| `W`/`Pfeiltaste oben`   | Leiter hochklettern                       |
+| `A`/`Pfeiltaste links`  | links                                     |
+| `S`/`Pfeiltaste unten`  | Leiter runterklettern                     |
+| `D`/`Pfeiltaste rechts` | rechts                                    |
+| `esc`                   | Pause Menu öffnen/Einstellungen schließen |
 
 ## Ablauf
 
 - Dialoge müssen mit Leertaste durchgeschaltet werden
-- Spieler kann sich mit `WASD` und `Leertaste` bewegen, sobald ein Dialog/Song beendet wurde (erkennbar daran, dass am
+- Spieler kann sich mit `WASD` oder den `Pfeiltasten` und `Leertaste` bewegen, sobald ein Dialog/Song beendet wurde (erkennbar daran, dass am
   unteren
   Bildschirmrand keine Box zu sehen ist)
 - Spieler muss nur den Anweisungen aus den Dialogen folgen (siehe [Aufgaben](#aufgaben))

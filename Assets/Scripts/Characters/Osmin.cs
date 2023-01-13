@@ -31,7 +31,7 @@ public class Osmin : MonoBehaviour
     {
         velocity = (transform.position - previous).magnitude / Time.deltaTime;
         previous = transform.position;
-        
+
         animator.SetFloat("Speed", velocity);
     }
 }

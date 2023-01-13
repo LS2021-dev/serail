@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject settingsMenuUI;
-    
+
     void Start()
     {
         Cursor.visible = true;
     }
-    
+
     public void StartButton()
     {
         GetComponent<AudioSource>().Stop();
-        SceneManager.LoadScene("Main");
+        FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 
     public void OptionsButton()
@@ -26,5 +26,4 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
 }

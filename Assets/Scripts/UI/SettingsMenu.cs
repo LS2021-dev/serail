@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    
+
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
 
@@ -15,10 +15,12 @@ public class SettingsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("masterVolume", volume);
     }
+
     public void SetDialoguesVolume(float volume)
     {
         audioMixer.SetFloat("dialoguesVolume", volume);
     }
+
     public void SetSongsVolume(float volume)
     {
         audioMixer.SetFloat("songsVolume", volume);
@@ -29,11 +31,16 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("backgroundMusicVolume", volume);
     }
 
+    public void CloseSettingsMenu()
+    {
+        settingsMenuUI.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            settingsMenuUI.SetActive(false);
+            CloseSettingsMenu();
         }
     }
 }

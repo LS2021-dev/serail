@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI messageText;
     public RectTransform backgroundBox;
 
-    private string[] actorNames = {"Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim"};
+    private string[] actorNames = { "Belmonte", "Konstanze", "Pedrillo", "Osmin", "Selim" };
 
     Message[] currentMessages;
     Actor[] currentActors;
@@ -44,13 +44,12 @@ public class DialogueManager : MonoBehaviour
         if (messageToDisplay.message.Split(' ').Length > 50)
         {
             messageText.fontSize = 15;
-
         }
         else
         {
             messageText.fontSize = 20;
         }
-        
+
         foreach (var s in actorNames)
         {
             if (actorName.text.Contains(s))
@@ -59,6 +58,7 @@ public class DialogueManager : MonoBehaviour
                 currentLight.GetComponent<Light2D>().enabled = true;
             }
         }
+
         AnimateTextColor();
     }
 

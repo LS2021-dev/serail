@@ -14,6 +14,6 @@ public class EndMenu : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Menu");
+        FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 }

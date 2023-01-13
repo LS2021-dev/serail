@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             {
                 animator.speed = 1;
             }
-            
+
             if (Input.GetKeyDown("space") && isGrounded)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
