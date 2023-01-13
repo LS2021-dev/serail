@@ -82,8 +82,6 @@ public class Story : MonoBehaviour
                 new Vector3(9, konstanzeRb.position.y, 0), 0.1f);
             playerRb.position = Vector3.MoveTowards(playerRb.position,
                 new Vector3(8, playerRb.position.y, 0), 0.1f);
-            osminRb.position = Vector3.MoveTowards(osminRb.position,
-                new Vector3(13, osminRb.position.y, 0), 0.1f);
         }
         else if (storyId == 8)
         {
@@ -94,6 +92,18 @@ public class Story : MonoBehaviour
         {
             pedrilloRb.position = Vector3.MoveTowards(pedrilloRb.position,
                 new Vector3(11, pedrilloRb.position.y, 0), 0.1f);
+        }
+
+        if (storyId >= 5)
+        {
+            osminRb.position = Vector3.MoveTowards(osminRb.position,
+                new Vector3(13, osminRb.position.y, 0), 0.1f);
+        }
+
+        if (storyId >= 7)
+        {
+            selimRb.position = Vector3.MoveTowards(selimRb.position,
+                new Vector3(12, selimRb.position.y, 0), 0.1f);
         }
     }
 
@@ -133,16 +143,15 @@ public class Story : MonoBehaviour
         else if (id == 6)
         {
             StartCoroutine(WaitForOsmin());
-            songTrigger2.StartSong();
         }
         else if (id == 7)
         {
             osminNotes.SetActive(false);
             songTrigger3.StartSong();
+            selim.GetComponent<SpriteRenderer>().enabled = true;
         }
         else if (id == 8)
         {
-            selim.GetComponent<SpriteRenderer>().enabled = true;
             StartCoroutine(WaitForSelim());
         }
         else if (id == 9)
@@ -171,6 +180,7 @@ public class Story : MonoBehaviour
     {
         yield return new WaitUntil(() => osminRb.position.x == 13);
         osminNotes.SetActive(true);
+        songTrigger2.StartSong();
     }
 
     private IEnumerator WaitForSelim()
