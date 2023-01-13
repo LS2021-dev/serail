@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. Auf Releases oder den [Link](https://google.de) klicken
+1. Auf Releases oder den [Link](https://github.com/LS2021-dev/serail/releases/tag/v1.0.0-alpha) klicken
 2. Für das jeweilige Betriebssystem die passende Datei herunterladen
 3. Ordner entpacken
 4. Unter Windows _.exe_ und unter MacOS _.dmg_ Datei ausführen
