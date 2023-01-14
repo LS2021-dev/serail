@@ -1,11 +1,24 @@
 # Die Entführung aus dem Serail
 
-## Installation
+## Installation Windows
 
 1. Auf Releases oder den [Link](https://github.com/LS2021-dev/serail/releases/tag/v1.0.0-alpha) klicken
-2. Für das jeweilige Betriebssystem die passende Datei herunterladen
+2. _serail-windows-x64.zip_ herunterladen
 3. Ordner entpacken
-4. Unter Windows _.exe_ und unter MacOS _.dmg_ Datei ausführen
+4. _.exe_ Datei ausführen
+
+## Installation MacOS
+
+1. Auf Releases oder den [Link](https://github.com/LS2021-dev/serail/releases/tag/v1.0.0-alpha) klicken
+2. _serail-windows-x64.zip_ herunterladen
+3. Ordner entpacken
+4. Wichtig:
+    1. Ordner in neuem Fenster öffnen
+       ![Bild](Documentation/Window.PNG)
+    2. Rechtsklick auf das Programm und dann auf "Öffnen" klicken
+       ![Bild](Documentation/Dropdown.PNG)
+    3. "Öffnen" klicken (**Wichtig**: Wenn die Option "Öffnen" nicht gegeben ist auf "Abbrechen" klicken und Schritt 2 wiederholen)
+       ![Bild](Documentation/Popup.PNG)
 
 ## Steuerung
 
@@ -21,7 +34,8 @@
 ## Ablauf
 
 - Dialoge müssen mit Leertaste durchgeschaltet werden
-- Spieler kann sich mit `WASD` oder den `Pfeiltasten` und `Leertaste` bewegen, sobald ein Dialog/Song beendet wurde (erkennbar daran, dass am
+- Spieler kann sich mit `WASD` oder den `Pfeiltasten` und `Leertaste` bewegen, sobald ein Dialog/Song beendet wurde (
+  erkennbar daran, dass am
   unteren
   Bildschirmrand keine Box zu sehen ist)
 - Spieler muss nur den Anweisungen aus den Dialogen folgen (siehe [Aufgaben](#aufgaben))
