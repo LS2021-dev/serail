@@ -17,7 +17,7 @@
        ![Bild](Documentation/Window.PNG)
     2. Rechtsklick auf das Programm und dann auf "Öffnen" klicken
        ![Bild](Documentation/Dropdown.PNG)
-    3. "Öffnen" klicken (**Wichtig**: Wenn die Option "Öffnen" nicht gegeben ist auf "Abbrechen" klicken und Schritt 2 wiederholen)
+    3. "Öffnen" klicken (**Wichtig**: Wenn die Option "Öffnen" nicht gegeben ist auf "Abbrechen" klicken und Schritt ii wiederholen)
        ![Bild](Documentation/Popup.PNG)
 
 ## Steuerung
