@@ -10,7 +10,7 @@
 ## Installation MacOS[^1]
 
 1. Auf Releases oder den [Link](https://github.com/LS2021-dev/serail/releases/tag/v1.0.0-alpha) klicken
-2. _serail-windows-x64.zip_ herunterladen
+2. _serail-macos.zip_ herunterladen
 3. Ordner entpacken
 4. Wichtig:
     1. Ordner in neuem Fenster öffnen
